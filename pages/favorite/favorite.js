@@ -267,7 +267,8 @@ Page({
   onPullDownRefresh: function () {
     this.setData({
       page: 1,
-      favlist: {}
+      favlist: {},
+      noMore: false
     })
     this.onLoad()
   },
