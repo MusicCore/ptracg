@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/musicdetail/musicdetail",
+    "pages/favorite/favorite",
+    "pages/logs/logs"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "曲谱列表",
+        "iconPath" : "/static/images/music_no.png",
+        "selectedIconPath" : "/static/images/music_yes.png"
+      },
+      {
+        "pagePath": "pages/favorite/favorite",
+        "text": "收藏夹",
+        "iconPath": "/static/images/fav_no.png",
+        "selectedIconPath": "/static/images/fav_yes.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "普通人口琴",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  }
+}

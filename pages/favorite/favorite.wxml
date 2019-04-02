@@ -1,0 +1,40 @@
+<!--pages/favorite/favorite.wxml-->
+<view class="page">
+  <view wx:if="{{!hasUserInfo && canIUse}}">
+    <view class="page__hd">
+      <view class="page__title">收藏夹</view>
+      <view class="page__desc">您需要登录才能使用</view>
+    </view>
+    <view class='page__bd page__bd_spacing'>
+      <button class="weui-btn" type="primary" disabled="{{login_btn}}" bindgetuserinfo="getToken" open-type="getUserInfo"> 授权登录 </button>
+    </view>
+  </view>
+  <block wx:else>
+  <view class="userinfo">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+
+  <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">我的收藏列表</view>
+        <view wx:for="{{favList}}" class="weui-panel__bd">
+          <navigator url="/pages/musicdetail/musicdetail?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{item.contentImg}}" lazy-load="true" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{item.title}}</view>
+              <view class="weui-media-box__desc">{{item.contentShort}}</view>
+            </view>
+          </navigator>
+        </view>
+
+      <block wx:if="{{noMore}}">
+        <view class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多</view>
+        </view>
+      </block>
+    </view>
+  </block>
+  <image src='../../static/images/toTop.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+</view>

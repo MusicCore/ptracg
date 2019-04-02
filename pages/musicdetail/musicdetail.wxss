@@ -1,0 +1,6 @@
+/* pages/musicdetail/musicdetail.wxss */
+@import "/static/wxParse/wxParse.wxss";
+
+.music_title{
+  width: 80%
+}

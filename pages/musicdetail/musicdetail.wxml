@@ -1,0 +1,25 @@
+<!--pages/musicdetail/musicdetail.wxml-->
+<import src="/static/wxParse/wxParse.wxml" />
+
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-article">
+      <view class="weui-article__h1 music_title">{{music.title}}</view>
+      <view class="weui-article__section">
+        <view class="weui-article__p">
+          <view wx:if="{{music.contentMusic.length > 0}}">
+            <audio poster="{{music.contentImg}}" name="{{music.title}}" src="{{music.contentMusic}}" id="myAudio" controls="true" loop="false"></audio>
+          </view>
+          <view wx:if='{{token.length > 0}}'>
+             <image class='right_img' bindtap='delFav' hidden='{{!isFav}}' src='../../static/images/isFav_yes.png'></image> 
+             <image  class='right_img' bindtap='addFav' hidden='{{isFav}}' src='../../static/images/isFav_no.png'></image>
+          </view>
+          <template is="wxParse" data="{{wxParseData:musicHtml.nodes}}" />
+          <view class="weui-footer">
+            <view class="weui-footer__text">普通人口琴 | ptracg.com</view>
+        </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
